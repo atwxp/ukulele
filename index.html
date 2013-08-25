@@ -1,0 +1,51 @@
+<!doctype html>	
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>UListen</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/player.css">
+	<script src="scripts/jquery-1.9.1.min.js"></script>
+  <script src="scripts/player-plugin.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <audio id="ukulele" controls src=""></audio>
+  </div>
+  <script>
+  jQuery(function($){
+
+    var listArray = [
+      {
+        title: "小手拉大手",
+        url: "audio/小手拉大手",
+        time: 18
+      },{
+        title: "张悬-宝贝",
+        url: "audio/宝贝前奏",
+        time: 17
+      },{
+        url: "audio/对视",
+        title: "对视",
+        time: 45
+    },{
+      title: "i m yours",
+      url: "audio/i m yours前奏",
+      time: 17
+    },{
+      title: "暖暖前奏",
+      url: "audio/暖暖前奏",
+      time: 11
+    },{
+      title: "陪我看日出前奏",
+      url: "audio/陪我看日出前奏",
+      time: 30
+    }];
+
+    $("#ukulele").player(listArray);
+  });
+  </script>
+</body>
+</html>
+  
