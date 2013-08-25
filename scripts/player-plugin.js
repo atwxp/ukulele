@@ -36,11 +36,11 @@
     };
 
     function playStatus(){
-      $(cssSelector.play).addClass("on").removeClass("pause");
+      $(cssSelector.play).addClass("pause").removeClass("on").attr("title","暂停");
     }
 
     function pauseStatus(){
-      $(cssSelector.play).addClass("pause").removeClass("on");
+      $(cssSelector.play).addClass("on").removeClass("pause").attr("title","播放");
     }
     
     function autoPlay(){
@@ -78,12 +78,11 @@
     }
 
     // 切换歌曲
-    function switchSong(){
+    function switchSong(){      
       var cur_song = trackSong();
       
-      self.pause();
       self.src = cur_song.url;
-      self.load();
+      self.load();      
       self.play();
     }
 
@@ -165,7 +164,7 @@
       
     var interfaceWrap = function () {
       // + 构建播放器界面
-      var markup = "<div class='playerContainer'><div id='loading'></div><div class='player'><div class='song_info'><div class='play_mode'><span class='mode random' data-icon='r' title='随机播放'></span><span class='mode queue' data-icon='q' title='顺序播放'></span><span class='mode single' data-icon='s' title='单曲循环'></span></div><h1 class='singer'></h1></div><div class='play_time'><div class='total_bar' title='调整歌曲进度'><div class='load_bar'></div><div class='progress_bar'></div></div><p class='time_tip'><time class='used'>00 : 00</time> / <time class='total'>00 : 00</time></p></div>" + "<div class='controls'><div class='action'><span class='opts prev' title='上一首' data-icon='p'></span><span class='opts pause' data-icon='u' title='播放'></span><span class='opts next' data-icon='n' title='下一首'></span></div><div class='volume'><span title='音量' data-icon='v' class='volume_icon'></span><div class='total_bar' title='调节音量'><div class='progress_bar'></div></div></div><span class='dictionary' title='歌曲列表' data-icon='d'></span></div></div><div class='songs_list'><ul></ul></div></div>";
+      var markup = "<div class='playerContainer'><div id='loading'></div><div class='player'><div class='song_info'><div class='play_mode'><span class='mode random' data-icon='r' title='随机播放'></span><span class='mode queue' data-icon='q' title='顺序播放'></span><span class='mode single' data-icon='s' title='单曲循环'></span></div><h1 class='singer'></h1></div><div class='play_time'><div class='total_bar' title='调整歌曲进度'><div class='load_bar'></div><div class='progress_bar'></div></div><p class='time_tip'><time class='used'>00 : 00</time> / <time class='total'>00 : 00</time></p></div>" + "<div class='controls'><div class='action'><span class='opts prev' title='上一首' data-icon='p'></span><span class='opts on' data-icon='u' title='播放'></span><span class='opts next' data-icon='n' title='下一首'></span></div><div class='volume'><span title='音量' data-icon='v' class='volume_icon'></span><div class='total_bar' title='调节音量'><div class='progress_bar'></div></div></div><span class='dictionary' title='歌曲列表' data-icon='d'></span></div></div><div class='songs_list'><ul></ul></div></div>";
     
       $(markup).insertAfter(self).css("opacity",0).animate({opacity: 1},600);
       
@@ -188,7 +187,7 @@
           seeking: addLoading,
           seeked: removeLoading,
           waiting: addLoading,
-          canplaythrough: removeLoading
+          canplay: removeLoading
         });
       
         // 切换播放模式
@@ -229,7 +228,15 @@
 
           // 播放暂停控制
         $( cssSelector.play ).click(function() {
-          togglePlay();
+
+          // 当前播放列表为空
+          if(self.currentSrc == ""){
+            params.autoplay = true;
+            autoPlay();
+          }
+          else{
+            togglePlay();
+          }
         });
         
         // 下一首上一首控制
@@ -264,6 +271,7 @@
       songList(); 
       
       // 初始化配置
+      self.src = "";
       autoPlay();
       setVolume(1);
       $(cssSelector.queue).trigger("click");
