@@ -88,10 +88,7 @@
 
     function endedMode(){
       var self = this;
-      if( $( cssSelector.single ).hasClass( cssSelector.cur ) ){
-        self.loop = true;
-      }
-      else if( $(cssSelector.queue).hasClass( cssSelector.cur ) ){
+      if( $(cssSelector.queue).hasClass( cssSelector.cur ) ){
         self.loop = false;
         count++;
       }
