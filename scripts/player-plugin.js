@@ -332,11 +332,12 @@
       var audio = $("audio")[0];
       var format = $.fn.player.util.detectFormat(audio);
 
-      if( url.indexOf(".mp3") == -1 || url.indexOf(".ogg") == -1){
-        url = url + "." + format;
+      if( url.indexOf(".mp3") != -1 || url.indexOf(".ogg") != -1 ){
+          return url;
       }
-      
-      return url;
+      else {
+        return url + "." + format;
+      }
     },
 
     checkCount: function(count,val) {
