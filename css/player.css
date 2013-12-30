@@ -1,28 +1,29 @@
 /*S player*/
 @font-face {
-    font-family:'ukulele';
-    src:url('../fonts/ukulele.eot');
-    src:url('../fonts/ukulele.eot?#iefix') format('embedded-opentype'), 
-        url('../fonts/ukulele.woff') format('woff'), 
-        url('../fonts/ukulele.ttf') format('truetype'), 
+    font-family: 'ukulele';
+    src: url('../fonts/ukulele.eot');
+    src: 
+        url('../fonts/ukulele.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ukulele.woff') format('woff'),
+        url('../fonts/ukulele.ttf') format('truetype'),
         url('../fonts/ukulele.svg#ukulele') format('svg');
-    font-weight:normal;
-    font-style:normal;
+    font-weight: normal;
+    font-style: normal;
 }
 
 [data-icon]:before {
-    font-family:'ukulele';
-    content:attr(data-icon);
-    speak:none;
-    font-weight:normal;
-    font-variant:normal;
-    text-transform:none;
-    line-height:1;
-    -webkit-font-smoothing:antialiased;
+    font-family: 'ukulele',serif;
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
 }
 
 audio {
-    display:none;
+    display: none;
 }
 
 .playerContainer {
@@ -33,14 +34,14 @@ audio {
 }
 
 .player {
-    background:#fff;
-    padding:15px;
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    border-radius:8px;
-    -webkit-box-shadow:0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow:0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
-    box-shadow:0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
+    background: #fff;
+    padding: 15px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 #loading {
@@ -49,10 +50,11 @@ audio {
     top: 0;
     width: 100%;
     height: 100%;
-    background:url("../images/loading.gif") no-repeat center;
-    z-index:100;
     display: none;
+    background: url(../images/loading.gif) no-repeat center;
+    z-index: 100;
 }
+
 #loading.loading {
     display: block;
 }
@@ -69,55 +71,59 @@ audio {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size:18px;
-    letter-spacing:2px;
+    font-size: 18px;
+    letter-spacing: 2px;
     text-align: center;
-    font-weight:400;
+    font-weight: 400;
 }
 
 .play_mode {
     float: right;
 }
+
 .play_mode .mode {
-    padding:2px 6px;
-    font-size:14px;
-    cursor:pointer;
+    padding: 2px 6px;
+    font-size: 14px;
+    cursor: pointer;
 }
+
 .cur {
-    color:#ec3434;
+    color: #ec3434;
 }
 /*E song_info*/
 
 /*S player_time*/
 .total_bar {
     height: 8px;
-    position:relative;
-    background:#888;
+    position: relative;
+    background: #888;
     overflow: hidden;
     z-index: 0;
     cursor: pointer;
 }
 
-.total_bar .progress_bar{
-    position:absolute;
-    left:0;
-    top:0;
+.total_bar .progress_bar { 
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 0;
     height: 100%;
-    background:#48b2db;
+    background: #48b2db;
 }
+
 .total_bar .load_bar {
     width: 0;
     height: 100%;
-    background:#ccc;
+    background: #ccc;
 }
 
 /*播放时间进度tip*/
 .time_tip {
     text-align: right;
 }
+
 .play_time .total_bar {
-    position:relative;
+    position: relative;
     margin: 10px 0 5px 0;
 }
 /*E player_time*/
@@ -125,15 +131,17 @@ audio {
 /*S controls*/
 .controls {
     margin-top: 10px;
-    font-size:14px;
+    font-size: 14px;
     text-align: right;
 }
 
-.action,.volume,.dictionary {
+.action,
+.volume,
+.dictionary {
     display: inline-block;
     margin: 0 10px 0 15px;
     vertical-align: middle;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .action .opts {
@@ -145,92 +153,138 @@ audio {
 .action .on:before {
     content: "a";
 }
+
 .action .pause:before {
     content: "u";
 }
 
 /* 声音 */
 .volume {
-    position:relative;
-    width:100px;
-    padding-left:20px;
+    position: relative;
+    width: 100px;
+    padding-left: 20px;
 }
+
 .volume .volume_icon {
-    position:absolute;
-    left:0;
-    top:-8px;
+    position: absolute;
+    left: 0;
+    top: -8px;
     font-size: 16px;
 }
-.volume .muted:before{
+
+.volume .muted:before {
     content: "m";
 }
+
 .volume .total_bar {
     position: relative;
     background: #ccc;
-    -webkit-transition:all .5s;
-    -moz-transition:all .5s;
-    -ms-transition:all .5s;
-    -o-transition:all .5s;
-    transition:all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
+
 .volume .total_bar:hover {
-    -webkit-box-shadow:0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
-    -moz-box-shadow:0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
-    box-shadow:0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
+    -webkit-box-shadow: 0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
+    -moz-box-shadow: 0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
+    box-shadow: 0 0 8px #59caff, 0 0 6px #5fccff, 0 0 4px #8ac5df;
 }
 
 /*歌曲列表*/
 .songs_list {
+    display: none;
     position: absolute;
     top: 105%;
     left: 0;
     width: 100%;
     max-height: 300px;
-    overflow: auto;
-    display: none;
     overflow: hidden;
-    -webkit-border-radius:6px;
-    -moz-border-radius:6px;
-    border-radius:6px;
-    -webkit-box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 9px 1px #000000;
-    -moz-box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 9px 1px #000000;
-    box-shadow:inset 0 1px 5px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 255, 255, 0.9), 0 2px 9px 1px #000000;
-    background:rgba(0, 0, 0, 0.9);
-    text-shadow:0 1px 2px #000;
-    color:#a5a5a5;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;    
+    -webkit-box-shadow: 
+        inset 0 1px 5px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 2px 9px 1px #000000;
+    -moz-box-shadow: 
+        inset 0 1px 5px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 2px 9px 1px #000000;
+    box-shadow: 
+        inset 0 1px 5px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 2px 9px 1px #000000;
+    background: rgba(0, 0, 0, 0.9);
+    text-shadow: 0 1px 2px #000;
+    color: #a5a5a5;
     z-index: 99;
 }
+
 .songs_list li {
     position: relative;
 }
-.songs_list li.active:before{
+
+.songs_list li.active:before {
     content: "l";
     position: absolute;
     left: 10px;
     top: 8px;
     color: #fff;
 }
+
 .songs_list a {
-    display:block;
-    padding:0 30px;
-    line-height:30px;
-    color:#999;
+    display: block;
+    padding: 0 30px;
+    line-height: 30px;
+    color: #999;
     -webkit-transition: color 0.4s linear;
     -moz-transition: color 0.4s linear;
     -ms-transition: color 0.4s linear;
     -o-transition: color 0.4s linear;
     transition: color 0.4s linear;
 }
-.songs_list a:hover, .songs_list li.active a{
-    box-shadow:0 -1px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0 rgba(0, 0, 0, 0.5);
-    background:rgba(255, 255, 255, 0.1);
-    background:-webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    background:-moz-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    background:-o-linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    background:linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    color:#fff;
+
+.songs_list a:hover,
+.songs_list li.active a {
+    -webkit-box-shadow: 
+        0 -1px 0 rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+        0 1px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 
+        0 -1px 0 rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+        0 1px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        0 -1px 0 rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2), 
+        0 1px 0 rgba(0, 0, 0, 0.5);
+    
+    background: rgba(255, 255, 255, 0.1);
+    background: -webkit-linear-gradient(
+        top, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
+    );
+    background: -moz-linear-gradient(
+        top, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
+    );
+    background: -o-linear-gradient(
+        top, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
+    );
+    background: linear-gradient(
+        top, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
+    );
+    color: #fff;
 }
 
 .songs_list time {
-    float:right;
+    float: right;
 }
